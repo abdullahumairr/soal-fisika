@@ -17,14 +17,14 @@
     <h1 class="text-center text-4xl font-bold mb-12 text-gray-800">Simulasi Tumbukan Fisika</h1>
 
     <!-- Tumbukan Tidak Lenting (Tidak Elastis) -->
-    <div class="mb-12 text-center">
+    <div class="mb-12 text-center flex flex-col items-center gap-14">
       <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Tidak Lenting (Tidak Elastis)</h2>
-      <div class="relative flex justify-between items-center">
+      <div class="relative flex justify-between items-center mr-96">
         <div id="card1" class="card bg-blue-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 1</div>
         <div id="card2" class="card bg-blue-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 2</div>
       </div>
       <button onclick="simulateNonLenting()" class="mt-8 px-6 py-2 bg-blue-500 text-white rounded-md shadow-lg hover:bg-blue-600">Simulasikan Tumbukan Tidak Lenting</button>
-      <div class="mt-4 text-lg text-gray-600">
+      <div class="text-lg text-gray-600">
         <p><strong>Posisi Awal:</strong> Benda bergerak ke arah masing-masing sebelum tabrakan. Benda 1 bergerak ke kanan (5 m/s), dan Benda 2 bergerak ke kiri (-4 m/s). <br>
         <strong>Arah Setelah Tumbukan:</strong> Kedua benda bergerak bersamaan, tidak ada pemulihan energi, dan keduanya berhenti setelah bertabrakan.
         </p>
@@ -32,14 +32,14 @@
     </div>
 
     <!-- Tumbukan Lenting Sebagian -->
-    <div class="mb-12 text-center">
+    <div class="mb-12 text-center flex flex-col items-center gap-14">
       <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Lenting Sebagian</h2>
-      <div class="relative flex justify-between items-center">
+      <div class="relative flex justify-between items-center mr-96">
         <div id="card3" class="card bg-green-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 3</div>
         <div id="card4" class="card bg-green-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 4</div>
       </div>
       <button onclick="simulateLentingSebagian()" class="mt-8 px-6 py-2 bg-green-500 text-white rounded-md shadow-lg hover:bg-green-600">Simulasikan Tumbukan Lenting Sebagian</button>
-      <div class="mt-4 text-lg text-gray-600">
+      <div class="text-lg text-gray-600">
         <p><strong>Posisi Awal:</strong> Benda 1 bergerak ke kanan (5 m/s), Benda 2 bergerak ke kiri (-4 m/s). <br>
         <strong>Arah Setelah Tumbukan:</strong> Benda 1 terus bergerak ke kanan, namun Benda 2 bergerak sebagian ke arah kiri (mengalami kehilangan energi setelah tumbukan).
         </p>
@@ -47,14 +47,14 @@
     </div>
 
     <!-- Tumbukan Lenting Sempurna -->
-    <div class="mb-12 text-center">
+    <div class="mb-12 text-center flex flex-col items-center gap-14">
       <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Lenting Sempurna</h2>
-      <div class="relative flex justify-between items-center">
+      <div class="relative flex justify-between items-center mr-96">
         <div id="card5" class="card bg-red-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 5</div>
         <div id="card6" class="card bg-red-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 6</div>
       </div>
       <button onclick="simulateLentingSempurna()" class="mt-8 px-6 py-2 bg-red-500 text-white rounded-md shadow-lg hover:bg-red-600">Simulasikan Tumbukan Lenting Sempurna</button>
-      <div class="mt-4 text-lg text-gray-600">
+      <div class="mtext-lg text-gray-600">
         <p><strong>Posisi Awal:</strong> Benda 1 bergerak ke kanan (5 m/s), Benda 2 bergerak ke kiri (-4 m/s). <br>
         <strong>Arah Setelah Tumbukan:</strong> Kedua benda kembali ke posisi awal mereka, masing-masing bergerak kembali ke arah semula tanpa kehilangan energi kinetik.
         </p>

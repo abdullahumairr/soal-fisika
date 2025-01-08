@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Tipe Tumbukan - Kartu Berbeda</title>
+  <style>
+    .card {
+      transition: transform 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+<!-- Container Utama -->
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-center text-4xl font-bold mb-12 text-gray-800">Simulasi Tumbukan Fisika</h1>
+
+    <!-- Tumbukan Tidak Lenting (Tidak Elastis) -->
+    <div class="mb-12 text-center">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Tidak Lenting (Tidak Elastis)</h2>
+      <div class="relative flex justify-between items-center">
+        <div id="card1" class="card bg-blue-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 1</div>
+        <div id="card2" class="card bg-blue-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 2</div>
+      </div>
+      <button onclick="simulateNonLenting()" class="mt-8 px-6 py-2 bg-blue-500 text-white rounded-md shadow-lg hover:bg-blue-600">Simulasikan Tumbukan Tidak Lenting</button>
+      <div class="mt-4 text-lg text-gray-600">
+        <p><strong>Posisi Awal:</strong> Benda bergerak ke arah masing-masing sebelum tabrakan. Benda 1 bergerak ke kanan (5 m/s), dan Benda 2 bergerak ke kiri (-4 m/s). <br>
+        <strong>Arah Setelah Tumbukan:</strong> Kedua benda bergerak bersamaan, tidak ada pemulihan energi, dan keduanya berhenti setelah bertabrakan.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tumbukan Lenting Sebagian -->
+    <div class="mb-12 text-center">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Lenting Sebagian</h2>
+      <div class="relative flex justify-between items-center">
+        <div id="card3" class="card bg-green-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 3</div>
+        <div id="card4" class="card bg-green-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 4</div>
+      </div>
+      <button onclick="simulateLentingSebagian()" class="mt-8 px-6 py-2 bg-green-500 text-white rounded-md shadow-lg hover:bg-green-600">Simulasikan Tumbukan Lenting Sebagian</button>
+      <div class="mt-4 text-lg text-gray-600">
+        <p><strong>Posisi Awal:</strong> Benda 1 bergerak ke kanan (5 m/s), Benda 2 bergerak ke kiri (-4 m/s). <br>
+        <strong>Arah Setelah Tumbukan:</strong> Benda 1 terus bergerak ke kanan, namun Benda 2 bergerak sebagian ke arah kiri (mengalami kehilangan energi setelah tumbukan).
+        </p>
+      </div>
+    </div>
+
+    <!-- Tumbukan Lenting Sempurna -->
+    <div class="mb-12 text-center">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-4">Tumbukan Lenting Sempurna</h2>
+      <div class="relative flex justify-between items-center">
+        <div id="card5" class="card bg-red-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-0">Card 5</div>
+        <div id="card6" class="card bg-red-300 w-24 h-24 flex items-center justify-center text-white font-semibold rounded-lg absolute left-64">Card 6</div>
+      </div>
+      <button onclick="simulateLentingSempurna()" class="mt-8 px-6 py-2 bg-red-500 text-white rounded-md shadow-lg hover:bg-red-600">Simulasikan Tumbukan Lenting Sempurna</button>
+      <div class="mt-4 text-lg text-gray-600">
+        <p><strong>Posisi Awal:</strong> Benda 1 bergerak ke kanan (5 m/s), Benda 2 bergerak ke kiri (-4 m/s). <br>
+        <strong>Arah Setelah Tumbukan:</strong> Kedua benda kembali ke posisi awal mereka, masing-masing bergerak kembali ke arah semula tanpa kehilangan energi kinetik.
+        </p>
+      </div>
+    </div>
+
+    <!-- Penjelasan Fisika Tumbukan -->
+    <div class="mt-16 bg-white p-8 rounded-xl shadow-md">
+      <h2 class="text-3xl font-semibold text-gray-800 text-center mb-6">Penjelasan Tentang Tumbukan dalam Fisika</h2>
+      <p class="text-lg text-gray-600 mb-4">
+        Tumbukan adalah interaksi antara dua benda yang saling bertumbukan akibat gaya yang diberikan satu sama lain. Dalam fisika, kita mengenal tiga jenis tumbukan: 
+        <strong>tumbukan tidak lenting (tidak elastis)</strong>, <strong>tumbukan lenting sebagian</strong>, dan <strong>tumbukan lenting sempurna</strong>.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-700 mb-4">1. Tumbukan Tidak Lenting (Tidak Elastis)</h3>
+      <p class="text-lg text-gray-600 mb-4">
+        Pada tumbukan tidak lenting, benda-benda bertumbukan dan sebagian besar energi kinetik diubah menjadi energi lainnya, seperti energi panas atau suara. Akibatnya, benda-benda tetap bergerak atau berhenti setelah tumbukan, tetapi tidak ada pemulihan energi kinetik setelah tabrakan.
+      </p>
+      <p class="text-lg text-gray-600 mb-4">
+        <strong>Massa dan Kecepatan Sebelum Tumbukan:</strong>
+        <br>Massa benda 1 (m₁) = 2 kg, Kecepatan benda 1 (v₁) = 5 m/s
+        <br>Massa benda 2 (m₂) = 3 kg, Kecepatan benda 2 (v₂) = -4 m/s
+        <br><strong>Rumus:</strong>
+        <br> Jika sebelum tumbukan dua benda memiliki massa \( m_1 \) dan \( m_2 \) serta kecepatan \( v_1 \) dan \( v_2 \), maka hukum kekekalan momentum berlaku, namun energi kinetik tidak dipertahankan sepenuhnya.
+        <br><code>m_1 * v_1 + m_2 * v_2 = (m_1 + m_2) * v_f</code> (dengan \( v_f \) adalah kecepatan akhir kedua benda)
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-700 mb-4">2. Tumbukan Lenting Sebagian</h3>
+      <p class="text-lg text-gray-600 mb-4">
+        Tumbukan lenting sebagian terjadi ketika sebagian energi kinetik dipertahankan setelah tumbukan, sementara sebagian besar berubah menjadi energi panas atau bentuk energi lain. Benda-benda yang bertumbukan tidak sepenuhnya kembali ke keadaan semula, dan sebagian energi hilang.
+      </p>
+      <p class="text-lg text-gray-600 mb-4">
+        <strong>Massa dan Kecepatan Sebelum Tumbukan:</strong>
+        <br>Massa benda 1 (m₁) = 2 kg, Kecepatan benda 1 (v₁) = 5 m/s
+        <br>Massa benda 2 (m₂) = 3 kg, Kecepatan benda 2 (v₂) = -4 m/s
+        <br><strong>Rumus:</strong> 
+        <br> Untuk tumbukan lenting sebagian, hukum kekekalan momentum tetap berlaku, namun energi kinetik tidak dipertahankan sepenuhnya:
+        <br><code>m_1 * v_1 + m_2 * v_2 = m_1 * v_1' + m_2 * v_2'</code> (di mana \( v_1' \) dan \( v_2' \) adalah kecepatan setelah tumbukan).
+      </p>
+
+      <h3 class="text-2xl font-semibold text-gray-700 mb-4">3. Tumbukan Lenting Sempurna</h3>
+      <p class="text-lg text-gray-600 mb-4">
+        Pada tumbukan lenting sempurna, baik energi kinetik maupun momentum dipertahankan. Setelah tumbukan, kedua benda akan saling kembali ke keadaan semula dengan kecepatan yang sesuai. 
+        Tidak ada energi yang hilang dalam bentuk lain seperti panas atau suara.
+      </p>
+      <p class="text-lg text-gray-600 mb-4">
+        <strong>Massa dan Kecepatan Sebelum Tumbukan:</strong>
+        <br>Massa benda 1 (m₁) = 2 kg, Kecepatan benda 1 (v₁) = 5 m/s
+        <br>Massa benda 2 (m₂) = 3 kg, Kecepatan benda 2 (v₂) = -4 m/s
+        <br><strong>Rumus:</strong> 
+        <br> Untuk tumbukan lenting sempurna, baik momentum maupun energi kinetik dipertahankan:
+        <br><code>m_1 * v_1 + m_2 * v_2 = m_1 * v_1' + m_2 * v_2'</code> (dengan \(v_1'\) dan \(v_2'\) adalah kecepatan setelah tumbukan) dan energi kinetik juga terjaga:
+        <br><code>0.5 * m_1 * v_1^2 + 0.5 * m_2 * v_2^2 = 0.5 * m_1 * v_1'^2 + 0.5 * m_2 * v_2'^2</code>
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    // Simulasi Tumbukan Tidak Lenting (Tidak Elastis)
+    function simulateNonLenting() {
+      const card1 = document.getElementById("card1");
+      const card2 = document.getElementById("card2");
+
+      card1.style.transition = "left 1s ease-in-out";
+      card2.style.transition = "left 1s ease-in-out";
+
+      card1.style.left = "150px";
+      card2.style.left = "150px";
+    }
+
+    // Simulasi Tumbukan Lenting Sebagian
+    function simulateLentingSebagian() {
+      const card3 = document.getElementById("card3");
+      const card4 = document.getElementById("card4");
+
+      card3.style.transition = "left 1s ease-in-out";
+      card4.style.transition = "left 1s ease-in-out";
+      
+      card3.style.left = "100px";
+      setTimeout(() => {
+        card4.style.left = "50px";  
+      }, 500);
+    }
+
+    // Simulasi Tumbukan Lenting Sempurna
+    function simulateLentingSempurna() {
+      const card5 = document.getElementById("card5");
+      const card6 = document.getElementById("card6");
+
+      card5.style.transition = "left 1s ease-in-out";
+      card6.style.transition = "left 1s ease-in-out";
+
+      card5.style.left = "100px";
+      card6.style.left = "0px";
+
+      setTimeout(() => {
+        card5.style.left = "0px";
+        card6.style.left = "64px";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
